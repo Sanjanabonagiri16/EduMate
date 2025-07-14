@@ -14,7 +14,500 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      assignments: {
+        Row: {
+          created_at: string | null
+          description: string | null
+          due_date: string
+          id: string
+          priority: string | null
+          status: string | null
+          subject_id: string | null
+          title: string
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          description?: string | null
+          due_date: string
+          id?: string
+          priority?: string | null
+          status?: string | null
+          subject_id?: string | null
+          title: string
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          description?: string | null
+          due_date?: string
+          id?: string
+          priority?: string | null
+          status?: string | null
+          subject_id?: string | null
+          title?: string
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "assignments_subject_id_fkey"
+            columns: ["subject_id"]
+            isOneToOne: false
+            referencedRelation: "subjects"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      attendance: {
+        Row: {
+          class_date: string
+          created_at: string | null
+          id: string
+          status: string
+          subject_id: string
+          user_id: string
+        }
+        Insert: {
+          class_date: string
+          created_at?: string | null
+          id?: string
+          status: string
+          subject_id: string
+          user_id: string
+        }
+        Update: {
+          class_date?: string
+          created_at?: string | null
+          id?: string
+          status?: string
+          subject_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "attendance_subject_id_fkey"
+            columns: ["subject_id"]
+            isOneToOne: false
+            referencedRelation: "subjects"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      certifications: {
+        Row: {
+          created_at: string | null
+          credential_id: string | null
+          credential_url: string | null
+          expiry_date: string | null
+          id: string
+          issue_date: string | null
+          issuer: string
+          title: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          credential_id?: string | null
+          credential_url?: string | null
+          expiry_date?: string | null
+          id?: string
+          issue_date?: string | null
+          issuer: string
+          title: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          credential_id?: string | null
+          credential_url?: string | null
+          expiry_date?: string | null
+          id?: string
+          issue_date?: string | null
+          issuer?: string
+          title?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      classes: {
+        Row: {
+          class_type: string | null
+          created_at: string | null
+          day_of_week: number
+          end_time: string
+          id: string
+          professor: string | null
+          room: string | null
+          start_time: string
+          subject_id: string
+          user_id: string
+        }
+        Insert: {
+          class_type?: string | null
+          created_at?: string | null
+          day_of_week: number
+          end_time: string
+          id?: string
+          professor?: string | null
+          room?: string | null
+          start_time: string
+          subject_id: string
+          user_id: string
+        }
+        Update: {
+          class_type?: string | null
+          created_at?: string | null
+          day_of_week?: number
+          end_time?: string
+          id?: string
+          professor?: string | null
+          room?: string | null
+          start_time?: string
+          subject_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "classes_subject_id_fkey"
+            columns: ["subject_id"]
+            isOneToOne: false
+            referencedRelation: "subjects"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      grades: {
+        Row: {
+          academic_year: string | null
+          created_at: string | null
+          exam_type: string
+          grade: string | null
+          id: string
+          marks_obtained: number | null
+          semester: number | null
+          subject_id: string
+          total_marks: number | null
+          user_id: string
+        }
+        Insert: {
+          academic_year?: string | null
+          created_at?: string | null
+          exam_type: string
+          grade?: string | null
+          id?: string
+          marks_obtained?: number | null
+          semester?: number | null
+          subject_id: string
+          total_marks?: number | null
+          user_id: string
+        }
+        Update: {
+          academic_year?: string | null
+          created_at?: string | null
+          exam_type?: string
+          grade?: string | null
+          id?: string
+          marks_obtained?: number | null
+          semester?: number | null
+          subject_id?: string
+          total_marks?: number | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "grades_subject_id_fkey"
+            columns: ["subject_id"]
+            isOneToOne: false
+            referencedRelation: "subjects"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      notes: {
+        Row: {
+          content: string | null
+          created_at: string | null
+          id: string
+          subject_id: string | null
+          tags: string[] | null
+          title: string
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          content?: string | null
+          created_at?: string | null
+          id?: string
+          subject_id?: string | null
+          tags?: string[] | null
+          title: string
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          content?: string | null
+          created_at?: string | null
+          id?: string
+          subject_id?: string | null
+          tags?: string[] | null
+          title?: string
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "notes_subject_id_fkey"
+            columns: ["subject_id"]
+            isOneToOne: false
+            referencedRelation: "subjects"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          branch: string | null
+          created_at: string | null
+          email: string
+          full_name: string
+          id: string
+          phone: string | null
+          roll_number: string | null
+          semester: number | null
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          branch?: string | null
+          created_at?: string | null
+          email: string
+          full_name: string
+          id?: string
+          phone?: string | null
+          roll_number?: string | null
+          semester?: number | null
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          avatar_url?: string | null
+          branch?: string | null
+          created_at?: string | null
+          email?: string
+          full_name?: string
+          id?: string
+          phone?: string | null
+          roll_number?: string | null
+          semester?: number | null
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      projects: {
+        Row: {
+          created_at: string | null
+          demo_url: string | null
+          description: string | null
+          end_date: string | null
+          github_url: string | null
+          id: string
+          project_type: string | null
+          start_date: string | null
+          status: string | null
+          tech_stack: string[] | null
+          title: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          demo_url?: string | null
+          description?: string | null
+          end_date?: string | null
+          github_url?: string | null
+          id?: string
+          project_type?: string | null
+          start_date?: string | null
+          status?: string | null
+          tech_stack?: string[] | null
+          title: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          demo_url?: string | null
+          description?: string | null
+          end_date?: string | null
+          github_url?: string | null
+          id?: string
+          project_type?: string | null
+          start_date?: string | null
+          status?: string | null
+          tech_stack?: string[] | null
+          title?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      question_bank: {
+        Row: {
+          answer: string | null
+          created_at: string | null
+          difficulty: string | null
+          id: string
+          question: string
+          question_type: string | null
+          subject_id: string | null
+          tags: string[] | null
+          user_id: string
+          year: number | null
+        }
+        Insert: {
+          answer?: string | null
+          created_at?: string | null
+          difficulty?: string | null
+          id?: string
+          question: string
+          question_type?: string | null
+          subject_id?: string | null
+          tags?: string[] | null
+          user_id: string
+          year?: number | null
+        }
+        Update: {
+          answer?: string | null
+          created_at?: string | null
+          difficulty?: string | null
+          id?: string
+          question?: string
+          question_type?: string | null
+          subject_id?: string | null
+          tags?: string[] | null
+          user_id?: string
+          year?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "question_bank_subject_id_fkey"
+            columns: ["subject_id"]
+            isOneToOne: false
+            referencedRelation: "subjects"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      skills: {
+        Row: {
+          category: string | null
+          created_at: string | null
+          id: string
+          proficiency: string | null
+          skill_name: string
+          user_id: string
+          verified: boolean | null
+        }
+        Insert: {
+          category?: string | null
+          created_at?: string | null
+          id?: string
+          proficiency?: string | null
+          skill_name: string
+          user_id: string
+          verified?: boolean | null
+        }
+        Update: {
+          category?: string | null
+          created_at?: string | null
+          id?: string
+          proficiency?: string | null
+          skill_name?: string
+          user_id?: string
+          verified?: boolean | null
+        }
+        Relationships: []
+      }
+      study_resources: {
+        Row: {
+          created_at: string | null
+          description: string | null
+          file_url: string | null
+          id: string
+          is_public: boolean | null
+          resource_type: string | null
+          subject_id: string | null
+          tags: string[] | null
+          title: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          description?: string | null
+          file_url?: string | null
+          id?: string
+          is_public?: boolean | null
+          resource_type?: string | null
+          subject_id?: string | null
+          tags?: string[] | null
+          title: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          description?: string | null
+          file_url?: string | null
+          id?: string
+          is_public?: boolean | null
+          resource_type?: string | null
+          subject_id?: string | null
+          tags?: string[] | null
+          title?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "study_resources_subject_id_fkey"
+            columns: ["subject_id"]
+            isOneToOne: false
+            referencedRelation: "subjects"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      subjects: {
+        Row: {
+          code: string | null
+          color: string | null
+          created_at: string | null
+          credits: number | null
+          id: string
+          name: string
+          user_id: string
+        }
+        Insert: {
+          code?: string | null
+          color?: string | null
+          created_at?: string | null
+          credits?: number | null
+          id?: string
+          name: string
+          user_id: string
+        }
+        Update: {
+          code?: string | null
+          color?: string | null
+          created_at?: string | null
+          credits?: number | null
+          id?: string
+          name?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

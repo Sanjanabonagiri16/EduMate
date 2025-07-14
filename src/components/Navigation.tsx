@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Home, Calendar, CheckSquare, BookOpen, Users, Settings, Menu, X } from "lucide-react";
+import { Home, Calendar, CheckSquare, BookOpen, Users, Settings, Menu, X, Calculator, Clock, Award, Folder } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -16,6 +16,12 @@ const Navigation = ({ activeTab, onTabChange }: NavigationProps) => {
     { id: 'timetable', icon: Calendar, label: 'Timetable' },
     { id: 'assignments', icon: CheckSquare, label: 'Assignments' },
     { id: 'notes', icon: BookOpen, label: 'Notes' },
+    { id: 'attendance', icon: CheckSquare, label: 'Attendance' },
+    { id: 'cgpa', icon: Calculator, label: 'CGPA' },
+    { id: 'pomodoro', icon: Clock, label: 'Pomodoro' },
+    { id: 'questions', icon: BookOpen, label: 'Questions' },
+    { id: 'skills', icon: Award, label: 'Skills' },
+    { id: 'projects', icon: Folder, label: 'Projects' },
     { id: 'connect', icon: Users, label: 'Connect' },
     { id: 'settings', icon: Settings, label: 'Settings' },
   ];

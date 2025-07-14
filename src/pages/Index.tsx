@@ -3,6 +3,16 @@ import Dashboard from "@/components/Dashboard";
 import Navigation from "@/components/Navigation";
 import Timetable from "@/components/Timetable";
 import AssignmentTracker from "@/components/AssignmentTracker";
+import Notes from "@/components/Notes";
+import StudyResources from "@/components/StudyResources";
+import Attendance from "@/components/Attendance";
+import CGPACalculator from "@/components/CGPACalculator";
+import PomodoroTimer from "@/components/PomodoroTimer";
+import QuestionBank from "@/components/QuestionBank";
+import Skills from "@/components/Skills";
+import Projects from "@/components/Projects";
+import PeerConnect from "@/components/PeerConnect";
+import Settings from "@/components/Settings";
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -16,32 +26,25 @@ const Index = () => {
       case 'assignments':
         return <AssignmentTracker />;
       case 'notes':
-        return (
-          <div className="p-6">
-            <h1 className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-4">
-              Course Notes
-            </h1>
-            <p className="text-muted-foreground">Coming soon! 📝</p>
-          </div>
-        );
+        return <Notes />;
+      case 'resources':
+        return <StudyResources />;
+      case 'attendance':
+        return <Attendance />;
+      case 'cgpa':
+        return <CGPACalculator />;
+      case 'pomodoro':
+        return <PomodoroTimer />;
+      case 'questions':
+        return <QuestionBank />;
+      case 'skills':
+        return <Skills />;
+      case 'projects':
+        return <Projects />;
       case 'connect':
-        return (
-          <div className="p-6">
-            <h1 className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-4">
-              Peer Connect
-            </h1>
-            <p className="text-muted-foreground">Coming soon! 👥</p>
-          </div>
-        );
+        return <PeerConnect />;
       case 'settings':
-        return (
-          <div className="p-6">
-            <h1 className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-4">
-              Settings
-            </h1>
-            <p className="text-muted-foreground">Coming soon! ⚙️</p>
-          </div>
-        );
+        return <Settings />;
       default:
         return <Dashboard />;
     }
